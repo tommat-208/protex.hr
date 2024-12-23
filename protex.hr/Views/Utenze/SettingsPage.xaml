@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Utenze"
              x:DataType="vm:SettingsViewModel"
              xmlns:a="clr-namespace:protex.hr.Services"
-             Title="SettingsPage">
+             Title="Impostazioni">
     <VerticalStackLayout Padding="10" Spacing="10">
 
         <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
@@ -48,11 +48,13 @@
         </Border>
         
         <!-- Informazioni sistema -->
-        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+        <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
             <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Informazioni applicazione"></Label>
 
             <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Fill" Text="Versione:"></Label>
             <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="{Binding AssVer}"></Label>
+
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Mostra changelog" Command="{Binding ChangelogClickCommand}"></Button>
         </Grid>
 
     </VerticalStackLayout>

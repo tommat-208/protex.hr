@@ -125,6 +125,18 @@ namespace protex.hr.ViewModels.Utenze
             App.Current.MainPage = new NavigationPage(new LoginPage(s));
         }
 
+        [RelayCommand]
+        public void ChangelogClick()
+        {
+            GotoChangelog();
+        }
+
+
+        private async void GotoChangelog()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new ChangelogPage());
+        }
+
 
 
 
