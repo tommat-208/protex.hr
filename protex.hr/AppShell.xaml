@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="protex.hr.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:protex.hr.Views"
+    xmlns:login="clr-namespace:protex.hr.Views.Utenze"
+    Shell.FlyoutBehavior="Disabled"
+    Title="protex.hr">
+
+
+    <ShellContent 
+        Title="Login"
+        ContentTemplate="{DataTemplate login:LoginPage}"
+        Route="LoginPage"/>
+
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="HomePage" />
+
+    
+
+</Shell>

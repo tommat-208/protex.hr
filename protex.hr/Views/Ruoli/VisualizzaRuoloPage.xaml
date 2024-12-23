@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ruoli.VisualizzaRuoloPage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ruoli"
+             x:DataType="vm:VisualizzaRuoloViewModel"
+             Title="Visualizza ruolo">
+    
+    <VerticalStackLayout Padding="10">
+        <!-- Modulo ricerca -->
+        <Border>
+            <VerticalStackLayout>
+                <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+                    <Label Text="ID ruolo:" Grid.Row="0" Grid.Column="0"/>
+                    <Entry Text="{Binding FiltroId}" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
+                </Grid>
+                <Button HorizontalOptions="Fill" Text="Cerca" Command="{Binding CercaRuoloClickCommand}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="{Binding Messaggio}" FontSize="20"/>
+
+        <!-- Modulo visualizzazione -->
+        <Border>
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+                <Label Text="ID:" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding Ruolo.Id}" Grid.Row="0" Grid.Column="1" />
+
+                <Label Text="Nome:" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="{Binding Ruolo.Name}" Grid.Row="1" Grid.Column="1" />
+
+                <Label Text="Descrizione:" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="{Binding Ruolo.Description}" Grid.Row="2" Grid.Column="1" />
+
+                <Button Text="Modifica" Grid.Row="3" Grid.Column="0" Command="{Binding ModificaRuoloClickCommand}"/>
+                <Button Text="Elimina" Grid.Row="3" Grid.Column="1" Command="{Binding EliminaRuoloClickCommand}"/>
+            </Grid>
+        </Border>
+        
+        
+    </VerticalStackLayout>
+</ContentPage>

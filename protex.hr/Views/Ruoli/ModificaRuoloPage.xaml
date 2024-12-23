@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ruoli.ModificaRuoloPage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ruoli"
+             x:DataType="vm:ModificaRuoloViewModel"
+             Title="ModificaRuoloPage">
+    <VerticalStackLayout>
+        <!-- Modulo modifica -->
+        <Border>
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+                <Label Text="ID:" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding Ruolo.Id}" Grid.Row="0" Grid.Column="1" />
+
+                <Label Text="Nome:" Grid.Row="1" Grid.Column="0"/>
+                <Entry Text="{Binding Ruolo.Name}" Grid.Row="1" Grid.Column="1" />
+
+                <Label Text="Descrizione:" Grid.Row="2" Grid.Column="0"/>
+                <Entry Text="{Binding Ruolo.Description}" Grid.Row="2" Grid.Column="1" />
+
+                <Button Text="Modifica" Grid.Row="3" Grid.Column="1" Command="{Binding ModificaRuoloClickCommand}"/>
+            </Grid>
+        </Border>
+
+        <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ferie.InserisciRichiestaPage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ferie"
+             x:DataType="vm:InserisciRichiestaViewModel"
+             Title="InserisciRichiestaPage">
+    <VerticalStackLayout Padding="10">
+        <Label Text="Richiesta ferie" StyleClass="Titolo"/>
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Dipendente:"></Label>
+                    <Picker Grid.Row="0" Grid.Column="1"
+                            Title="(Seleziona dipendente)"
+                            ItemsSource="{Binding ListaDipendenti}"
+                            ItemDisplayBinding="{Binding IdCognomeNome}"
+                            SelectedItem="{Binding Richiesta.Employee}"
+                            ></Picker>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Data inizio:"></Label>
+                    <DatePicker Grid.Row="1" Grid.Column="1" Format="dd/MM/yyyy" Date="{Binding Richiesta.StartDate}"></DatePicker>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Data fine:"></Label>
+                    <DatePicker Grid.Row="2" Grid.Column="1" Format="dd/MM/yyyy" Date="{Binding Richiesta.EndDate}"></DatePicker>
+                </Grid>
+
+                <Button Command="{Binding InserisciRichiestaClickCommand}" Text="Inserisci richiesta"></Button>
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"/>
+    </VerticalStackLayout>
+</ContentPage>

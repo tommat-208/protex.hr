@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ruoli.ListaRuoliPage"
+             xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ruoli"
+             x:DataType="vm:ListaRuoliViewModel"
+             Title="Lista ruoli">
+    <VerticalStackLayout Padding="10">
+
+
+        <Label Text="{Binding Messaggio}" StyleClass="Titolo" FontSize="20"/>
+        <Button Text="⟳ Aggiorna elenco" StyleClass="TransparentBtn" Command="{Binding RicaricaListaCommand}"/>
+
+        <ListView ItemsSource="{Binding ListaRuoli}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Role}">
+                    <ViewCell>
+                        <Grid RowDefinitions="*" ColumnDefinitions="*,*,2*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding Description}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Dipendenti.ListaDipendentiPage"
+             xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Dipendenti"
+             x:DataType="vm:ListaDipendentiViewModel"
+             Title="ListaDipendentiPage">
+    
+    <VerticalStackLayout>
+        <Label StyleClass="Titolo" Text="{Binding Messaggio}"/>
+
+        <Button Text="⟳ Aggiorna lista" StyleClass="TransparentBtn" Command="{Binding AggiornaListaDipendentiCommand}"/>
+
+        <Button Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" Text="Visualizza dipendente selezionato"
+        Command="{Binding VisualizzaDipendenteCommand}"></Button>
+
+        <ListView Margin="10" SelectedItem="{Binding DipendenteSelezionato}" ItemsSource="{Binding ListaDipendenti}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Employee}">
+                    <ViewCell>
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding IdCognomeNome}"></Label>
+                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Email}"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Role.Name}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+
+    </VerticalStackLayout>
+</ContentPage>

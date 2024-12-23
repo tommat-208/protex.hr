@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Presenze.StoricoPresenzePage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Presenze"
+             x:DataType="vm:StoricoPresenzeViewModel"
+             xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
+             Title="StoricoPresenzePage">
+    <VerticalStackLayout Padding="10">
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Dipendente:"></Label>
+                    <Picker Grid.Row="0" Grid.Column="1"
+                            Title="(Seleziona dipendente)"
+                            ItemsSource="{Binding ListaDipendenti}"
+                            SelectedItem="{Binding DipendenteSelezionato}"
+                            ItemDisplayBinding="{Binding IdCognomeNome}"
+                            ></Picker>
+                </Grid>
+
+                <Button HorizontalOptions="Fill" Command="{Binding CaricaStoricoClickCommand}" Text="Mostra storico"></Button>
+            </VerticalStackLayout>
+        </Border>
+        
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"></Label>
+
+        <ListView ItemsSource="{Binding StoricoPresenze}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:AttendanceRecord}">
+                    <ViewCell>
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*, 2*,*,*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id, StringFormat='ID: {0}'}"></Label>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Date}"></Label>
+                            <Label Grid.RowSpan="2" Grid.Column="2" Text="{Binding CheckInTime}"></Label>
+                            <Label Grid.RowSpan="2" Grid.Column="3" Text="{Binding CheckOutTime}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

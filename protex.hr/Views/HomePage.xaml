@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.HomePage"
+             xmlns:A="clr-namespace:protex.hr.Services"
+             Title="HomePage">
+    <VerticalStackLayout StyleClass="MenuContainer">
+
+        <VerticalStackLayout HorizontalOptions="Center">
+            <Label HorizontalOptions="Center" Text="Benvenuto"></Label>
+            <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="{x:Static A:Sessione.Username}"/>
+            <Button StyleClass="TransparentBtn" Text="Impostazioni" Clicked="impostazioniClicked"></Button>
+        </VerticalStackLayout>
+        
+        <Label StyleClass="Titolo" Text="Protex HR"/>
+        
+        <Button Text="Gestione ruoli" Clicked="ruoliClicked"/>
+
+        <Button Text="Gestione dipendenti" Clicked="dipendentiClicked"/>
+
+        <Button Text="Gestione presenze" Clicked="presenzeClicked"/>
+
+        <Button Text="Gestione ferie" Clicked="ferieClicked"></Button>
+
+    </VerticalStackLayout>
+</ContentPage>

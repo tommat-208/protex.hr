@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Presenze.InserisciPresenzaPage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Presenze"
+             x:DataType="vm:InserisciPresenzaViewModel"
+             Title="InserisciPresenzaPage">
+    <VerticalStackLayout Padding="10">
+
+        <Label Text="Presenza" StyleClass="Titolo"></Label>
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Dipendente:"></Label>
+                    <Picker Grid.Row="0" Grid.Column="1" 
+                            ItemsSource="{Binding ListaDipendenti}" 
+                            SelectedItem="{Binding Presenza.Employee}" 
+                            ItemDisplayBinding="{Binding IdCognomeNome}"
+                            Title="(Seleziona dipendente)"></Picker>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Data:"></Label>
+                    <DatePicker Grid.Row="1" Grid.Column="1" Date="{Binding Presenza.Date}" Format="dd/MM/yyyy"></DatePicker>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Orario check in:"></Label>
+                    <TimePicker Grid.Row="2" Grid.Column="1" Time="{Binding Presenza.CheckInTime}" Format="HH:mm"></TimePicker>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Orario check out:"></Label>
+                    <TimePicker Grid.Row="3" Grid.Column="1" Time="{Binding Presenza.CheckOutTime}" Format="HH:mm"></TimePicker>
+                </Grid>
+
+                <Button Text="Inserisci presenza" Command="{Binding InserisciPresenzaClickCommand}"></Button>
+            </VerticalStackLayout>
+        </Border>
+        <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
+        
+    </VerticalStackLayout>
+</ContentPage>

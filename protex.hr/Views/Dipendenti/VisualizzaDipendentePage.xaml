@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Dipendenti.VisualizzaDipendentePage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Dipendenti"
+             x:DataType="vm:VisualizzaDipendenteViewModel"
+             Title="VisualizzaDipendentePage">
+
+    <VerticalStackLayout Padding="10">
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Id:"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Dipendente.Id}"></Label>
+                    
+                    <Label Grid.Row="1" Grid.Column="0" Text="Nome:"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Dipendente.FirstName}"></Entry>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Cognome"/>
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Dipendente.LastName}"></Entry>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Ruolo:"/>
+                    <Picker Grid.Row="3" Grid.Column="1" 
+                            ItemsSource="{Binding Ruoli}" 
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Dipendente.Role}"></Picker>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Data assunzione:"/>
+                    <DatePicker Grid.Row="4" Grid.Column="1" Date="{Binding Dipendente.HireDate.Date}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Email:"/>
+                    <Entry Grid.Row="5" Grid.Column="1" Text="{Binding Dipendente.Email}"></Entry>
+
+                    <Button Grid.Row="6" Grid.Column="0" Text="Salva modifiche" Command="{Binding ModificaDipendenteClickCommand}"></Button>
+                    <Button Grid.Row="6" Grid.Column="1" Text="Elimina" Command="{Binding EliminaDipendenteClickCommand}"></Button>
+                    
+                </Grid>
+                
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"/>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

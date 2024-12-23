@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ruoli.InserisciRuoloPage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ruoli"
+             x:DataType="vm:InserisciRuoloViewModel"
+             Title="Inserisci nuovo ruolo">
+    <VerticalStackLayout Padding="10">
+        <Label Text="Ruolo" StyleClass="Titolo"/>
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Nome:"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Role.Name}"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Descrizione:"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Role.Description}"></Entry>
+            
+                </Grid>
+                <Button Text="Inserisci ruolo" Command="{Binding InserisciRuoloClickCommand}"></Button>
+            </VerticalStackLayout>
+        </Border>
+        
+        
+        <Label Text="{Binding Messaggio}" FontSize="20"></Label>
+        
+    </VerticalStackLayout>
+
+</ContentPage>

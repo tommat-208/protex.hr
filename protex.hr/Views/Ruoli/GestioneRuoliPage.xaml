@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Ruoli.GestioneRuoliPage"
+             Title="Gestione ruoli">
+    
+    <VerticalStackLayout StyleClass="MenuContainer">
+        <Label StyleClass="Titolo" Text="Gestione Ruoli"/>
+
+        <Button Text="Crea ruolo" Clicked="creaClicked"/>
+
+        <Button Text="Visualizza tutti i ruoli" Clicked="listaClicked"/>
+
+        <Button Text="Visualizza ruolo" Clicked="visualizzaClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="protex.hr.Views.Dipendenti.InserisciDipendentePage"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Dipendenti"
+             x:DataType="vm:InserisciDipendenteViewModel"
+             Title="InserisciDipendentePage">
+    
+    <VerticalStackLayout Padding="10">
+        <Label Text="Dipendente" StyleClass="Titolo"/>
+
+        <Border>
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Nome:"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Dipendente.FirstName}"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Cognome"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Dipendente.LastName}"></Entry>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Ruolo:"/>
+                    <Picker Grid.Row="2" Grid.Column="1" 
+                            Title="(Seleziona ruolo)" 
+                            SelectedItem="{Binding Dipendente.Role}" 
+                            ItemsSource="{Binding Ruoli}" 
+                            ItemDisplayBinding="{Binding Name}"></Picker>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Data assunzione:"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" Date="{Binding Dipendente.HireDate}" Format="dd/MM/yyyy"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Email:"/>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Dipendente.Email}"></Entry>
+
+                </Grid>
+                <Button Text="Inserisci dipendente" Command="{Binding InserisciDipendenteClickCommand}"></Button>
+            </VerticalStackLayout>
+        </Border>
+
+
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"></Label>
+
+    </VerticalStackLayout>
+</ContentPage>

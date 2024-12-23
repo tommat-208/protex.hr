@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
+             xmlns:vm="clr-namespace:protex.hr.ViewModels.Ferie"
+             x:DataType="vm:ListaFerieViewModel"
+             x:Class="protex.hr.Views.Ferie.ListaFeriePage"
+             
+             Title="ListaFeriePage">
+    <VerticalStackLayout Padding="10">
+        <Label StyleClass="Titolo" Text="{Binding ListaRichieste.Count, StringFormat='Richieste in attesa ({0})'}"></Label>
+
+        <Button StyleClass="TransparentBtn" Command="{Binding AggiornaListaClickCommand}" Text="⟳ Aggiorna"></Button>
+
+        <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
+
+        <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding RifiutaRichiestaClickCommand}"  Text="Rifiuta" HorizontalOptions="Fill" BackgroundColor="Red" TextColor="White"></Button>
+            <Button Grid.Row="0" Grid.Column="1" Command="{Binding AccettaRichiestaClickCommand}" Text="Accetta" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"></Button>
+        </Grid>
+
+        <ListView ItemsSource="{Binding ListaRichieste}" SelectedItem="{Binding RichiestaSelezionata}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:LeaveRequest}">
+                    <ViewCell>
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="2*,*,*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id, StringFormat='ID: {0}'}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Employee.IdCognomeNome}"/>
+
+                            <Label Grid.RowSpan="2" Grid.Column="1" Text="{Binding StartDate}" />
+                            <Label Grid.RowSpan="2" Grid.Column="2" Text="{Binding EndDate}" />
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </VerticalStackLayout>
+</ContentPage>
