@@ -9,8 +9,8 @@
         <Label StyleClass="Titolo" Text="Changelog" />
 
 
-        <Label Text="{Binding Changes}"></Label>
-        
-        
+        <Label Padding="10" Text="{Binding Changes}"></Label>
+
+
     </VerticalStackLayout>
 </ContentPage>

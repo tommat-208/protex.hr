@@ -19,7 +19,7 @@
     <Style Class="OutputMsg" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
     </Style>
-
+    
     <Style Class="TransparentBtn" TargetType="Button">
         <Setter Property="BackgroundColor" Value="Transparent"/>
         <Setter Property="FontAttributes" Value="Bold"/>
@@ -190,10 +190,10 @@
     </Style>
 
     <Style TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="FontSize" Value="14" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">

@@ -26,10 +26,18 @@ namespace protex.hr.ViewModels.Utenze
             {
                 var app = await APIGithub.GetChangelog();
 
-                if (string.IsNullOrEmpty(app))
-                    Changes = "Nessun changelog disponibile.";
+                if (app != null && app.Count > 0)
+                {
+                    var msg = "";
+
+                    foreach (var i in app)
+                        msg += i+"\n\n";
+
+                    Changes = msg;
+                }
                 else
-                    Changes = app;
+                    Changes = "Nessun changelog disponibile.";
+                
             }
             catch (Exception ex)
             {
