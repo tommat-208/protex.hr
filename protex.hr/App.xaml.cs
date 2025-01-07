@@ -9,7 +9,7 @@ namespace protex.hr
         public App()
         {
             InitializeComponent();
-
+            //App.Current.UserAppTheme = AppTheme.Dark;
             MainPage = new NavigationPage(new LoginPage());
             
             

@@ -29,6 +29,8 @@
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
+
+		<WindowsPackageType>None</WindowsPackageType>
 		
 		<PackageVersion>1.0.0</PackageVersion>
 
@@ -38,7 +40,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<AssemblyVersion>1.4.31.1224</AssemblyVersion>
+		<AssemblyVersion>1.4.88.0103</AssemblyVersion>
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
 		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
@@ -46,9 +48,25 @@
 		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<Platforms>AnyCPU;x64</Platforms>
+		<DefaultLanguage>it</DefaultLanguage>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <ShouldCreateLogs>True</ShouldCreateLogs>
+	  <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+	  <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+	  <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+	  <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+	  <UpdatePackageVersion>False</UpdatePackageVersion>
+	  <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+	  <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|x64'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidUseAapt2>True</AndroidUseAapt2>
 	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
@@ -69,12 +87,34 @@
 	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|x64'">
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
+		<AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+		<PackageCertificateThumbprint>03CF48D981D1F7000288E8C41583C38E0A7A1CF3</PackageCertificateThumbprint>
+	</PropertyGroup>
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+	</PropertyGroup>
+	
+	<!--
+	<PropertyGroup Condition="'$(IsPublishing)'  == 'true' And '$(TargetFramework)' == 'net8.0-windows10.0.19041.0'">
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	</PropertyGroup>
+	-->
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\hr_splash.svg" Color="#512BD4" BaseSize="256,256" />
+		<MauiSplashScreen Include="Resources\Splash\hr_splash.svg" Color="#ffd400" BaseSize="256,256"> <!--512BD4-->
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</MauiSplashScreen>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -119,6 +159,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\HRColors.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Dipendenti\GestioneDipendentiPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -182,6 +225,15 @@
 	  <MauiXaml Update="Views\Utenze\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\AppIcon\appiconfg.svg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\Splash\splash.svg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

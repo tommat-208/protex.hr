@@ -16,6 +16,10 @@
         <Setter Property="VerticalOptions" Value="Start" />
     </Style>
 
+    <Style TargetType="VerticalStackLayout">
+        <Setter Property="Spacing" Value="10"/>
+    </Style>
+
     <Style Class="OutputMsg" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
     </Style>
@@ -23,7 +27,7 @@
     <Style Class="TransparentBtn" TargetType="Button">
         <Setter Property="BackgroundColor" Value="Transparent"/>
         <Setter Property="FontAttributes" Value="Bold"/>
-        <Setter Property="TextColor" Value="{StaticResource Gray500}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray200}}"/>
     </Style>
 
     <Style TargetType="Grid">
@@ -43,6 +47,7 @@
         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="StrokeShape" Value="Rectangle"/>
         <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
         <Setter Property="Padding" Value="10" />
     </Style>
 
@@ -52,10 +57,10 @@
 
     <Style TargetType="Button">
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource OffBlack}, Dark={StaticResource PrimaryDarkText}}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="17"/>
         <Setter Property="BorderWidth" Value="0"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="14,10"/>

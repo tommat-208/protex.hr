@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="protex.hr.Views.HomePage"
              xmlns:A="clr-namespace:protex.hr.Services"
-             Title="HomePage">
+             Title="Home">
     <VerticalStackLayout StyleClass="MenuContainer">
 
         <VerticalStackLayout HorizontalOptions="Center">
-            <Label HorizontalOptions="Center" Text="Benvenuto"></Label>
-            <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="{x:Static A:Sessione.Username}"/>
-            <Button StyleClass="TransparentBtn" Text="Impostazioni" Clicked="impostazioniClicked"></Button>
+            <HorizontalStackLayout Spacing="7">
+                <Label HorizontalOptions="Center" Text="Benvenuto"></Label>
+                <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="{x:Static A:Sessione.Username}"/>
+            </HorizontalStackLayout>
+            
+            <Button StyleClass="TransparentBtn" Text="⚙ Impostazioni" Clicked="impostazioniClicked"></Button>
         </VerticalStackLayout>
         
         <Label StyleClass="Titolo" Text="Protex HR"/>

@@ -40,7 +40,7 @@ namespace protex.hr.ViewModels.Ruoli
                 if (l != null)
                 {
                     ListaRuoli = new ObservableCollection<Role>(l);
-                    Messaggio = $"Elenco ruoli ({l.Count})";
+                    Messaggio = $"Elenco ruoli caricato";
                 }
                 else
                 {

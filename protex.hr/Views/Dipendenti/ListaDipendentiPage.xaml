@@ -5,17 +5,19 @@
              xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Dipendenti"
              x:DataType="vm:ListaDipendentiViewModel"
-             Title="ListaDipendentiPage">
+             Title="Lista dipendenti">
     
-    <VerticalStackLayout>
-        <Label StyleClass="Titolo" Text="{Binding Messaggio}"/>
+    <VerticalStackLayout Padding="10">
+        <Label StyleClass="Titolo" Text="{Binding ListaDipendenti.Count, StringFormat='Lista dipendenti ({0})'}"/>
 
         <Button Text="⟳ Aggiorna lista" StyleClass="TransparentBtn" Command="{Binding AggiornaListaDipendentiCommand}"/>
 
+        <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
+        
         <Button Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" Text="Visualizza dipendente selezionato"
         Command="{Binding VisualizzaDipendenteCommand}"></Button>
 
-        <ListView Margin="10" SelectedItem="{Binding DipendenteSelezionato}" ItemsSource="{Binding ListaDipendenti}">
+        <ListView SelectedItem="{Binding DipendenteSelezionato}" ItemsSource="{Binding ListaDipendenti}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type models:Employee}">
                     <ViewCell>

@@ -14,9 +14,9 @@ namespace protex.hr.ViewModels.Ferie
     public partial class ListaFerieViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableCollection<LeaveRequest> listaRichieste=new();
+        private ObservableCollection<LeaveRequest> listaRichieste = new();
         [ObservableProperty]
-        private LeaveRequest richiestaSelezionata;
+        private LeaveRequest richiestaSelezionata = new();
         [ObservableProperty]
         private string messaggio = "";
 

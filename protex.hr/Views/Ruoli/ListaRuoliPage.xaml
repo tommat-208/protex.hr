@@ -9,8 +9,9 @@
     <VerticalStackLayout Padding="10">
 
 
-        <Label Text="{Binding Messaggio}" StyleClass="Titolo" FontSize="20"/>
+        <Label Text="{Binding ListaRuoli.Count, StringFormat='Elenco ruoli ({0})'}" StyleClass="Titolo"/>
         <Button Text="⟳ Aggiorna elenco" StyleClass="TransparentBtn" Command="{Binding RicaricaListaCommand}"/>
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg" />
 
         <ListView ItemsSource="{Binding ListaRuoli}">
             <ListView.ItemTemplate>

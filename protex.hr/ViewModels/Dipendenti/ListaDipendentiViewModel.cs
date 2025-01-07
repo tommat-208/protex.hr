@@ -37,7 +37,7 @@ namespace protex.hr.ViewModels.Dipendenti
             }
             else
             {
-                Messaggio = "e' null";
+                Messaggio = "Nessun dipendente selezionato";
             }
         }
 
@@ -61,7 +61,7 @@ namespace protex.hr.ViewModels.Dipendenti
 
                 if (l != null) {
                     ListaDipendenti = new(l);
-                    Messaggio = $"Lista dipendenti ({ListaDipendenti.Count})";
+                    Messaggio = $"Lista dipendenti caricata";
                 }
                 else
                 {

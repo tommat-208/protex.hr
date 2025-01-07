@@ -4,7 +4,7 @@
              x:Class="protex.hr.Views.Utenze.LoginPage"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Utenze"
              x:DataType="vm:LoginViewModel"
-             Title="LoginPage">
+             Title="Login">
     <VerticalStackLayout StyleClass="MenuContainer">
         
         <Label StyleClass="Titolo" Text="Login"/>

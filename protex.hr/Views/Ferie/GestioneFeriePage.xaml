@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="protex.hr.Views.Ferie.GestioneFeriePage"
-             Title="GestioneFeriePage">
+             Title="Gestione ferie">
     <VerticalStackLayout StyleClass="MenuContainer">
         <Label StyleClass="Titolo" Text="Gestione Ferie"/>
 

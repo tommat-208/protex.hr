@@ -85,7 +85,7 @@ namespace protex.hr.Services
                     messages.Add($"{date.GetString()}\n-{message.GetString()}");
                 }
             }
-
+            
             return messages;
         }
     }

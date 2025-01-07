@@ -4,7 +4,7 @@
              x:Class="protex.hr.Views.Utenze.ChangelogPage"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Utenze"
              x:DataType="vm:ChangelogViewModel"
-             Title="ChagelogPage">
+             Title="Changelog">
     <VerticalStackLayout>
         <Label StyleClass="Titolo" Text="Changelog" />
 

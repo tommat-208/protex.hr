@@ -4,7 +4,7 @@
              x:Class="protex.hr.Views.Dipendenti.InserisciDipendentePage"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Dipendenti"
              x:DataType="vm:InserisciDipendenteViewModel"
-             Title="InserisciDipendentePage">
+             Title="Inserisci dipendente">
     
     <VerticalStackLayout Padding="10">
         <Label Text="Dipendente" StyleClass="Titolo"/>

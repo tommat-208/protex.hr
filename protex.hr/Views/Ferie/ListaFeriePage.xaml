@@ -6,7 +6,7 @@
              x:DataType="vm:ListaFerieViewModel"
              x:Class="protex.hr.Views.Ferie.ListaFeriePage"
              
-             Title="ListaFeriePage">
+             Title="Lista richieste ferie">
     <VerticalStackLayout Padding="10">
         <Label StyleClass="Titolo" Text="{Binding ListaRichieste.Count, StringFormat='Richieste in attesa ({0})'}"></Label>
 
@@ -14,9 +14,9 @@
 
         <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
 
-        <Grid RowDefinitions="*" ColumnDefinitions="*,*">
-            <Button Grid.Row="0" Grid.Column="0" Command="{Binding RifiutaRichiestaClickCommand}"  Text="Rifiuta" HorizontalOptions="Fill" BackgroundColor="Red" TextColor="White"></Button>
-            <Button Grid.Row="0" Grid.Column="1" Command="{Binding AccettaRichiestaClickCommand}" Text="Accetta" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"></Button>
+        <Grid RowDefinitions="*" ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding RifiutaRichiestaClickCommand}"  Text="Rifiuta" HorizontalOptions="Fill" BackgroundColor="{AppThemeBinding Light='Red', Dark='#c30101'}" TextColor="{StaticResource White}"></Button>
+            <Button Grid.Row="0" Grid.Column="1" Command="{Binding AccettaRichiestaClickCommand}" Text="Accetta" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="{StaticResource White}"></Button>
         </Grid>
 
         <ListView ItemsSource="{Binding ListaRichieste}" SelectedItem="{Binding RichiestaSelezionata}">

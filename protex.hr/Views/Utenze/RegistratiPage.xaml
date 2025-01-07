@@ -4,31 +4,34 @@
              x:Class="protex.hr.Views.Utenze.RegistratiPage"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Utenze"
              x:DataType="vm:RegistratiViewModel"
-             Title="RegistratiPage">
+             Title="Registrati">
     <VerticalStackLayout StyleClass="MenuContainer">
         <Label StyleClass="Titolo" Text="Registrati"/>
 
-        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
-            <Label Grid.Row="0" Grid.Column="0" Text="Username:"/>
-            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Utente.Username}"/>
-
-            <Label Grid.Row="1" Grid.Column="0" Text="Email:"></Label>
-            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Utente.Email}"></Entry>
-
-            <Label Grid.Row="2" Grid.Column="0" Text="Tipo:"/>
-            <Picker Grid.Row="2" Grid.Column="1" 
-                    Title="(Seleziona tipo)"
-                    ItemsSource="{Binding ListaTipi}"
-                    SelectedItem="{Binding Utente.Type}"
-                    ItemDisplayBinding="{Binding Name}"></Picker>
-
-            <Label Grid.Row="3" Grid.Column="0" Text="Password:"></Label>
-            <Entry Grid.Row="3" Grid.Column="1" IsPassword="True" Text="{Binding Utente.PasswordHash}"/>
-
-            <Label Grid.Row="4" Grid.Column="0" Text="Conferma password:"></Label>
-            <Entry Grid.Row="4" Grid.Column="1" IsPassword="True" Text="{Binding ConfermaPassword}" />
+        <Border>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
             
-        </Grid>
+                <Label Grid.Row="0" Grid.Column="0" Text="Username:"/>
+                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Utente.Username}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Email:"></Label>
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Utente.Email}"></Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Tipo:"/>
+                <Picker Grid.Row="2" Grid.Column="1" 
+                        Title="(Seleziona tipo)"
+                        ItemsSource="{Binding ListaTipi}"
+                        SelectedItem="{Binding Utente.Type}"
+                        ItemDisplayBinding="{Binding Name}"></Picker>
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Password:"></Label>
+                <Entry Grid.Row="3" Grid.Column="1" IsPassword="True" Text="{Binding Utente.PasswordHash}"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Conferma password:"></Label>
+                <Entry Grid.Row="4" Grid.Column="1" IsPassword="True" Text="{Binding ConfermaPassword}" />
+            
+            </Grid>
+        </Border>
 
         <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"></Label>
 
