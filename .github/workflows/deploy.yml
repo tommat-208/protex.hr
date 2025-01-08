@@ -46,5 +46,5 @@ jobs:
               with:
                 name: Build
                 path: | 
-                ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
-                ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
