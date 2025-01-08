@@ -64,6 +64,14 @@ jobs:
                         ref: 'refs/tag/v${{ steps.extractVersion.outputs.version }}'
                     })
             
+            - name: Rename Auto-Update Installer
+              shell: pwsh
+              run: Rename-Item ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.msix AutoUpdate.msix
+            
+            - name: Rename Certificate
+              shell: pwsh
+              run: Rename-Item ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.cer ProtexHR.cer
+
             
             #- name: Upload
             #  uses: actions/upload-artifact@v4 
@@ -71,13 +79,16 @@ jobs:
             #    name: Build
             #    path: | 
             #        ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
-            #        ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
+            #        ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.cer
             
             - name: Create Release
               uses: softprops/action-gh-release@v1
               with:
                 tag_name: v${{ steps.extractVersion.outputs.version }}
                 files: |
-                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.msix
-                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.pfx
+                    ./protex.hr/ProtexHR.appinstaller
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/AutoUpdate.msix
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/ProtexHR.cer
+                    
+                    
             

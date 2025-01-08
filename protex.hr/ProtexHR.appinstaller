@@ -2,8 +2,19 @@
 <AppInstaller 
 	xmlns="http://schemas.microsoft.com/appx/appinstaller/2018" 
 	Version="1.0.0.0"
-	Uri="">
-	
-	
+	Uri="https://github.com/tommat-208/protex.hr/releases/latest/download/ProtexHR.appinstaller">
+
+	<!--Version deve essere uguale ad <ApplicationDisplayVersion> all'interno di csproj-->
+	<MainPackage 
+		Name="com.companyname.protex.hr"
+		Publisher="CN=tommaso.matteoni"
+		Version="1.0.0" 
+		ProcessorArchitecture="x64"
+		Uri="https://github.com/tommat-208/protex.hr/releases/latest/download/ProtexHR.msix" />
+
+	<UpdateSettings>
+		<OnLaunch HoursBetweenUpdateChecks="0" />
+		
+	</UpdateSettings>
 	
 </AppInstaller>
