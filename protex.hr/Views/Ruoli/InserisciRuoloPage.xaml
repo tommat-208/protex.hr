@@ -10,7 +10,7 @@
 
         <Border>
             <VerticalStackLayout>
-                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                <Grid ColumnDefinitions="*,2*" RowDefinitions="*,*">
                     <Label Grid.Row="0" Grid.Column="0" Text="Nome:"/>
                     <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Role.Name}"></Entry>
 
@@ -23,7 +23,7 @@
         </Border>
         
         
-        <Label Text="{Binding Messaggio}" FontSize="20"></Label>
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"></Label>
         
     </VerticalStackLayout>
 

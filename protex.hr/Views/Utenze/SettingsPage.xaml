@@ -6,58 +6,61 @@
              x:DataType="vm:SettingsViewModel"
              xmlns:a="clr-namespace:protex.hr.Services"
              Title="Impostazioni">
-    <VerticalStackLayout Padding="10" Spacing="10">
 
-        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" StyleClass="Titolo" Text="Impostazioni"/>
+    <ScrollView VerticalOptions="FillAndExpand">
+        <VerticalStackLayout Padding="10" Spacing="10">
+
+            <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" StyleClass="Titolo" Text="Impostazioni"/>
 
 
-        <!-- Operazioni utente -->
-        <Border>
-            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="10">
-                <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Operazioni utente"></Label>
+            <!-- Operazioni utente -->
+            <Border>
+                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Operazioni utente"></Label>
 
-                <Label Grid.Row="1" Grid.Column="0" Text="Loggato come:" />
-                <Label Grid.Row="1" Grid.Column="1" FontAttributes="Bold" Text="{x:Static a:Sessione.Username}" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Loggato come:" />
+                    <Label Grid.Row="1" Grid.Column="1" FontAttributes="Bold" Text="{x:Static a:Sessione.Username}" />
 
-                <Button Grid.Row="2" Grid.Column="0" HorizontalOptions="Fill" Text="Elimina utente" Command="{Binding EliminaClickCommand}"></Button>
-                <Button Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill" Text="Logout" Command="{Binding LogoutClickCommand}"></Button>
-            </Grid>
-        </Border>
-        
-        <!-- Modulo cambia password -->
-        <Border>
-            <StackLayout>
-                <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*">
-
-                    <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Cambia password" ></Label>
-        
-                    <Label Grid.Row="1" Grid.Column="0" Text="Vecchia password:"></Label>
-                    <Entry Grid.Row="1" Grid.Column="1" IsPassword="True" Text="{Binding VecchiaPw}"></Entry>
-
-                    <Label Grid.Row="2" Grid.Column="0" Text="Nuova password:"></Label>
-                    <Entry Grid.Row="2" Grid.Column="1" IsPassword="True" Text="{Binding NuovaPw}"></Entry>
-
-                    <Label Grid.Row="3" Grid.Column="0" Text="Conferma nuova password:"></Label>
-                    <Entry Grid.Row="3" Grid.Column="1" IsPassword="True" Text="{Binding ConfermaPw}"></Entry>
-            
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Cambia password" Command="{Binding CambiaPwClickCommand}"></Button>
+                    <Button Grid.Row="2" Grid.Column="0" HorizontalOptions="Fill" Text="Elimina utente" Command="{Binding EliminaClickCommand}"></Button>
+                    <Button Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill" Text="Logout" Command="{Binding LogoutClickCommand}"></Button>
                 </Grid>
-        
-                <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
-            </StackLayout>
-        </Border>
-        
-        <!-- Informazioni applicazione -->
-        <Border>
-            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
-                <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Informazioni applicazione"></Label>
+            </Border>
 
-                <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Fill" Text="Versione:"></Label>
-                <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="{Binding AssVer}"></Label>
+            <!-- Modulo cambia password -->
+            <Border>
+                <StackLayout>
+                    <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*">
 
-                <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Mostra changelog" Command="{Binding ChangelogClickCommand}"></Button>
-            </Grid>
-        </Border>
+                        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Cambia password" ></Label>
 
-    </VerticalStackLayout>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Vecchia password:"></Label>
+                        <Entry Grid.Row="1" Grid.Column="1" IsPassword="True" Text="{Binding VecchiaPw}"></Entry>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Nuova password:"></Label>
+                        <Entry Grid.Row="2" Grid.Column="1" IsPassword="True" Text="{Binding NuovaPw}"></Entry>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Conferma nuova password:"></Label>
+                        <Entry Grid.Row="3" Grid.Column="1" IsPassword="True" Text="{Binding ConfermaPw}"></Entry>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Cambia password" Command="{Binding CambiaPwClickCommand}"></Button>
+                    </Grid>
+
+                    <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
+                </StackLayout>
+            </Border>
+
+            <!-- Informazioni applicazione -->
+            <Border>
+                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold" Text="Informazioni applicazione"></Label>
+
+                    <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Fill" Text="Versione:"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="{Binding AssVer}"></Label>
+
+                    <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Mostra changelog" Command="{Binding ChangelogClickCommand}"></Button>
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

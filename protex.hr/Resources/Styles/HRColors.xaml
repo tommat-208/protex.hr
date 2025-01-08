@@ -15,6 +15,8 @@
     <Color x:Key="Tertiary">#2B0B98</Color>-->
 
     <Color x:Key="White">#FAF8F6</Color>
+    <Color x:Key="Red">#C23B22</Color>
+    <Color x:Key="RedDark">#D24B32</Color>
 
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>

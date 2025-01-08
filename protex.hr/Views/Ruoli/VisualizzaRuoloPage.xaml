@@ -7,6 +7,9 @@
              Title="Visualizza ruolo">
     
     <VerticalStackLayout Padding="10">
+
+        <Label StyleClass="Titolo" Text="Visualizza ruolo"/>
+
         <!-- Modulo ricerca -->
         <Border>
             <VerticalStackLayout>
@@ -18,7 +21,7 @@
             </VerticalStackLayout>
         </Border>
 
-        <Label Text="{Binding Messaggio}" FontSize="20"/>
+        <Label Text="{Binding Messaggio}" StyleClass="OutputMsg"/>
 
         <!-- Modulo visualizzazione -->
         <Border>

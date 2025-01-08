@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="protex.hr.Views.HomePage"
              xmlns:A="clr-namespace:protex.hr.Services"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Home">
-    <VerticalStackLayout StyleClass="MenuContainer">
+    <VerticalStackLayout>
 
-        <VerticalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout HorizontalOptions="Center">
+
+            <Image Source="appiconfg.png" HeightRequest="65">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource OffBlack}, Dark={StaticResource White}}"/>
+                </Image.Behaviors>
+            </Image>
+            
+            <Label Text="Protex" FontSize="40" VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="HR" FontSize="40" TextColor="#F2C202"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="™" FontSize="40" VerticalTextAlignment="Center" FontAttributes="Bold" />
+
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="0">
             <HorizontalStackLayout Spacing="7">
                 <Label HorizontalOptions="Center" Text="Benvenuto"></Label>
                 <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="{x:Static A:Sessione.Username}"/>
@@ -14,16 +29,19 @@
             
             <Button StyleClass="TransparentBtn" Text="⚙ Impostazioni" Clicked="impostazioniClicked"></Button>
         </VerticalStackLayout>
+
+        <VerticalStackLayout StyleClass="MenuContainer">
+            <Label StyleClass="Titolo" Text="Seleziona l'area"/>
+
+            <Button Text="Gestione ruoli" Clicked="ruoliClicked"/>
+
+            <Button Text="Gestione dipendenti" Clicked="dipendentiClicked"/>
+
+            <Button Text="Gestione presenze" Clicked="presenzeClicked"/>
+
+            <Button Text="Gestione ferie" Clicked="ferieClicked"></Button>
+        </VerticalStackLayout>
         
-        <Label StyleClass="Titolo" Text="Protex HR"/>
-        
-        <Button Text="Gestione ruoli" Clicked="ruoliClicked"/>
-
-        <Button Text="Gestione dipendenti" Clicked="dipendentiClicked"/>
-
-        <Button Text="Gestione presenze" Clicked="presenzeClicked"/>
-
-        <Button Text="Gestione ferie" Clicked="ferieClicked"></Button>
 
     </VerticalStackLayout>
 </ContentPage>

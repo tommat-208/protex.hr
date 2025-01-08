@@ -2,7 +2,8 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
 
     <Style Class="Titolo" TargetType="Label">
         <Setter Property="FontSize" Value="30" />
@@ -18,10 +19,12 @@
 
     <Style TargetType="VerticalStackLayout">
         <Setter Property="Spacing" Value="10"/>
+        <Setter Property="MaximumWidthRequest" Value="1000"/>
     </Style>
 
     <Style Class="OutputMsg" TargetType="Label">
         <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Red}, Dark={StaticResource RedDark}}"/>
     </Style>
     
     <Style Class="TransparentBtn" TargetType="Button">
@@ -48,7 +51,7 @@
         <Setter Property="StrokeShape" Value="Rectangle"/>
         <Setter Property="StrokeThickness" Value="1"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="15,20,15,15" />
     </Style>
 
     <Style TargetType="BoxView">
@@ -147,7 +150,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="MinimumHeightRequest" Value="44"/>
         <Setter Property="MinimumWidthRequest" Value="44"/>
@@ -195,6 +198,7 @@
     </Style>
 
     <Style TargetType="Label">
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="20" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />

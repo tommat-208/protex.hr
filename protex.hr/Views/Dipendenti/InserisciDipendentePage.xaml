@@ -11,7 +11,7 @@
 
         <Border>
             <VerticalStackLayout>
-                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
+                <Grid ColumnDefinitions="*,2*" RowDefinitions="*,*,*,*,*">
                     <Label Grid.Row="0" Grid.Column="0" Text="Nome:"/>
                     <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Dipendente.FirstName}"></Entry>
 
