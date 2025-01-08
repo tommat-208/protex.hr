@@ -37,7 +37,7 @@ jobs:
               working-directory: ./protex.hr
               
             - name: Upload
-              run: actions/upload-artifact@v4 
+              uses: actions/upload-artifact@v4 
               with:
                 name: Build
                 path: ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
