@@ -50,7 +50,7 @@
         </VerticalStackLayout>
 
         <HorizontalStackLayout Spacing="7" HorizontalOptions="Center" Padding="0,35,0,0">
-            <Label Text="Assembly version:"/>
+            <Label Text="Versione:"/>
             <Label Text="{Binding AssVer}" FontAttributes="Bold"/>
         </HorizontalStackLayout>
         

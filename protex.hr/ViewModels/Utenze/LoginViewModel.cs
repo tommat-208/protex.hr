@@ -25,7 +25,8 @@ namespace protex.hr.ViewModels.Utenze
         [ObservableProperty]
         private string messaggio = "";
         [ObservableProperty]
-        private string assVer = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        private string assVer = AppInfo.VersionString;
+        //private string assVer = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 
         public LoginViewModel() {
