@@ -49,7 +49,7 @@ jobs:
               shell: pwsh
               run: |
                 $xml = [Xml] (Get-Content ./protex.hr/protexhr.app.csproj)
-                [string] $version = [Version] $xml.Project.PropertyGroup.ApplicationDisplayVersion
+                $version = $xml.Project.PropertyGroup.ApplicationDisplayVersion | Select-Object -First 1
                 echo "version=$($version)" >> $env:GITHUB_OUTPUT
                 
             - name: Create Tag
