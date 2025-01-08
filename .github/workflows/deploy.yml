@@ -4,6 +4,9 @@ on:
     push:
         branches:
             - master
+            
+permissions:
+    contents: write
         
 jobs:
     build:
@@ -41,10 +44,40 @@ jobs:
               run: dotnet publish -c Release -f:net8.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=true /p:PackageCertificateThumbprint=${{ secrets.SIGNING_CERTIFICATE_THUMBPRINT }}
               working-directory: ./protex.hr
               
-            - name: Upload
-              uses: actions/upload-artifact@v4 
+            - name: Extract Version
+              id: extractVersion
+              shell: pwsh
+              run: |
+                $xml = [Xml] (Get-Content ./protex.hr/protexhr.app.csproj)
+                [string] $version = [Version] $xml.Project.PropertyGroup.ApplicationDisplayVersion
+                echo "version=$($version)" >> $env:GITHUB_OUTPUT
+                
+            - name: Create Tag
+              uses: actions/github-script@v5
               with:
-                name: Build
-                path: | 
-                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
-                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
+                github-token: ${{ secrects.GITHUB_TOKEN }}
+                script: |
+                    github.rest.git.createRef({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        sha: context.sha,
+                        ref: 'refs/tag/v${{ steps.extractVersion.outputs.version }}'
+                    })
+            
+            
+            #- name: Upload
+            #  uses: actions/upload-artifact@v4 
+            #  with:
+            #    name: Build
+            #    path: | 
+            #        ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
+            #        ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.pfx
+            
+            - name: Create Release
+              uses: softprops/action-gh-release@v1
+              with:
+                tag_name: v${{ steps.extractVersion.outputs.version }}
+                files: |
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.msix
+                    ./protex.hr/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_Test/protexhr.app_${{ steps.extractVersion.outputs.version }}.0_x64.pfx
+            
