@@ -24,7 +24,7 @@
 		<ApplicationTitle>protex.hr</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.protex.hr</ApplicationId>
+		<ApplicationId>tommaso.matteoni.protex.hr</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.1.0</ApplicationDisplayVersion>
@@ -229,9 +229,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="ProtexHR.appinstaller">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
 	  <None Update="Resources\AppIcon\appiconfg.svg">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
