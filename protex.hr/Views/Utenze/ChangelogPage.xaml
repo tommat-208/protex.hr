@@ -5,16 +5,17 @@
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Utenze"
              x:DataType="vm:ChangelogViewModel"
              Title="Changelog">
-    <ScrollView VerticalOptions="FillAndExpand">
-        <VerticalStackLayout>
-            <Label StyleClass="Titolo" Text="Changelog" />
+    
+    <VerticalStackLayout>
+        <Label StyleClass="Titolo" Text="Changelog" />
 
+        <ScrollView VerticalOptions="FillAndExpand">
 
             <Label Padding="10" Text="{Binding Changes}"></Label>
+        </ScrollView>
 
+    </VerticalStackLayout>
 
-        </VerticalStackLayout>
-
-    </ScrollView>
+    
     
 </ContentPage>
