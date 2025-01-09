@@ -9,7 +9,7 @@
 
         <HorizontalStackLayout HorizontalOptions="Center">
 
-            <Image Source="appiconfg.png" HeightRequest="65">
+            <Image Source="appiconfg.png" HeightRequest="65" >
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource OffBlack}, Dark={StaticResource White}}"/>
                 </Image.Behaviors>

@@ -4,7 +4,7 @@
              x:Class="protex.hr.Views.Ferie.InserisciRichiestaPage"
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Ferie"
              x:DataType="vm:InserisciRichiestaViewModel"
-             Title="InserisciRichiestaPage">
+             Title="Inserisci richiesta ferie">
     <VerticalStackLayout Padding="10">
         <Label Text="Richiesta ferie" StyleClass="Titolo"/>
 

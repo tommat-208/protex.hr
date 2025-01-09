@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:protex.hr.ViewModels.Presenze"
              x:DataType="vm:StoricoPresenzeViewModel"
              xmlns:models="clr-namespace:Repository;assembly=Protexhr.repository"
-             Title="StoricoPresenzePage">
+             Title="Storico presenze">
     <VerticalStackLayout Padding="10">
 
         <Border>
