@@ -15,9 +15,9 @@
                     <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource OffBlack}, Dark={StaticResource White}}"/>
                 </Image.Behaviors>
             </Image>
-            <Label Text="Protex" FontSize="50" VerticalTextAlignment="Center" FontAttributes="Bold" />
-            <Label Text="HR" FontSize="50" TextColor="#F2C202"  VerticalTextAlignment="Center" FontAttributes="Bold" />
-            <Label Text="™" FontSize="50" VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="Protex" FontSize="47" VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="HR" FontSize="47" TextColor="#F2C202"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="™" FontSize="47" VerticalTextAlignment="Center" FontAttributes="Bold" />
 
         </HorizontalStackLayout>
 

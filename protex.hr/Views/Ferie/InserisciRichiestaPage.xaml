@@ -10,7 +10,7 @@
 
         <Border>
             <VerticalStackLayout>
-                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+                <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,2*">
                     <Label Grid.Row="0" Grid.Column="0" Text="Dipendente:"></Label>
                     <Picker Grid.Row="0" Grid.Column="1"
                             Title="(Seleziona dipendente)"
