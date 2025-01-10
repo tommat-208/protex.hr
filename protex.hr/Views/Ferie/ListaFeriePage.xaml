@@ -15,7 +15,7 @@
         <Label StyleClass="OutputMsg" Text="{Binding Messaggio}"></Label>
 
         <Grid RowDefinitions="*" ColumnDefinitions="*,*" ColumnSpacing="10">
-            <Button Grid.Row="0" Grid.Column="0" Command="{Binding RifiutaRichiestaClickCommand}"  Text="Rifiuta" HorizontalOptions="Fill" BackgroundColor="{AppThemeBinding Light='Red', Dark='#c30101'}" TextColor="{StaticResource White}"></Button>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding RifiutaRichiestaClickCommand}" Text="Rifiuta" HorizontalOptions="Fill" BackgroundColor="{AppThemeBinding Light='Red', Dark='#c30101'}" TextColor="{StaticResource White}"></Button>
             <Button Grid.Row="0" Grid.Column="1" Command="{Binding AccettaRichiestaClickCommand}" Text="Accetta" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="{StaticResource White}"></Button>
         </Grid>
 
