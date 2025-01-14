@@ -25,19 +25,26 @@
 
         <!-- Modulo visualizzazione -->
         <Border>
-            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,2*">
-                <Label Text="ID:" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="{Binding Ruolo.Id}" Grid.Row="0" Grid.Column="1" />
+            <VerticalStackLayout>
+                <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,2*">
+                    <Label Text="ID:" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding Ruolo.Id}" Grid.Row="0" Grid.Column="1" />
 
-                <Label Text="Nome:" Grid.Row="1" Grid.Column="0"/>
-                <Label Text="{Binding Ruolo.Name}" Grid.Row="1" Grid.Column="1" />
+                    <Label Text="Nome:" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding Ruolo.Name}" Grid.Row="1" Grid.Column="1" />
 
-                <Label Text="Descrizione:" Grid.Row="2" Grid.Column="0"/>
-                <Label Text="{Binding Ruolo.Description}" Grid.Row="2" Grid.Column="1" />
+                    <Label Text="Descrizione:" Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="{Binding Ruolo.Description}" Grid.Row="2" Grid.Column="1" />
+                    
+                </Grid>
 
-                <Button Text="Modifica" Grid.Row="3" Grid.Column="0" Command="{Binding ModificaRuoloClickCommand}"/>
-                <Button Text="Elimina" Grid.Row="3" Grid.Column="1" Command="{Binding EliminaRuoloClickCommand}"/>
-            </Grid>
+                <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+                    <Button Text="Modifica" Grid.Row="0" Grid.Column="0" Command="{Binding ModificaRuoloClickCommand}"/>
+                    <Button Text="Elimina" Grid.Row="0" Grid.Column="1" Command="{Binding EliminaRuoloClickCommand}"/>
+                </Grid>
+
+            </VerticalStackLayout>
+            
         </Border>
         
         
