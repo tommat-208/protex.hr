@@ -27,7 +27,7 @@
 		<ApplicationId>tommaso.matteoni.protex.hr</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.1.7</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>1.1.8</ApplicationDisplayVersion>
 
 		<!--<WindowsPackageType>None</WindowsPackageType>-->
 		
@@ -39,7 +39,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<AssemblyVersion>1.4.135.0114</AssemblyVersion>
+		<AssemblyVersion>1.4.137.0114</AssemblyVersion>
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
 		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
