@@ -13,7 +13,7 @@ namespace protex.hr.Services
     {
 
         private static string url = $"https://api.github.com/repos/tommat-208/protex.hr/commits";
-        private static string token = "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"; // Validita' 60 giorni; scade il 21 feb 2025
+        private static string token = "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"; // CANCELLATO DA GITHUB ////Validita' 60 giorni; scade il 21 feb 2025
         private static HttpClient _httpClient = GetHttpClient();
 
         private static HttpClient GetHttpClient()
